@@ -37,6 +37,9 @@ public class FileDownloadController {
 	}
 	
 	
+	
+	// @RestController = @Controller + @ResponseBody
+	
 	@RequestMapping(value="/download", method= RequestMethod.GET)
 	public ResponseEntity<Object> downloadFile(@RequestParam("fileName") String fileName) throws FileNotFoundException{
 		
@@ -46,8 +49,16 @@ public class FileDownloadController {
 		
 		HttpHeaders headers = new HttpHeaders();
 		headers.add("Content-Disposition", "attachment; fileName=" +fileName);
-		return ResponseEntity.ok().headers(headers).body(resource);
+		return ResponseEntity.ok().headers(headers).contentType(contentType(MediaType.parseMediaType("application/txt"))).body(resource);
 	
 	}
+
+
+	private MediaType contentType(MediaType parseMediaType) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
 	
 }
