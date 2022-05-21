@@ -26,7 +26,7 @@ public class FileDownloadController {
 	@RequestMapping(value="/upload", method = RequestMethod.POST, consumes = MediaType.TEXT_PLAIN_VALUE)
 	public String fileupload(@RequestParam("file")MultipartFile file) throws IOException {
 		
-		File convFile = new File("/Users/snigdha.mittadoddiicloud.com/Desktop/tmp/"+file.getOriginalFilename());
+		File convFile = new File("/Users//Desktop/tmp/"+file.getOriginalFilename());
 				convFile.createNewFile();
 				
 				 try (FileOutputStream fos = new FileOutputStream(convFile)) {
@@ -43,7 +43,7 @@ public class FileDownloadController {
 	@RequestMapping(value="/download", method= RequestMethod.GET)
 	public ResponseEntity<Object> downloadFile(@RequestParam("fileName") String fileName) throws FileNotFoundException{
 		
-		File file= new File("/Users/snigdha.mittadoddiicloud.com/Desktop/tmp/"+fileName);
+		File file= new File("/Users//Desktop/tmp/"+fileName);
 		InputStreamResource resource = new InputStreamResource(new FileInputStream(file));
 		
 		
